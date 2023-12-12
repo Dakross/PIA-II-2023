@@ -10,7 +10,7 @@
     <div class="container">
         <nav class="navbar">
           <ul>
-            <li><a href="/juancarlosbodoque"><img src="https://images.vexels.com/media/users/3/261545/isolated/preview/0c1e0c11a29ed825bb3410ed9a93655c-estrella-plana-amarilla-brillante.png" alt="reddit Icon" width="22" height="22"> GPI PIA II 2023</a></li>
+            <li><a href="/index"><img src="https://images.vexels.com/media/users/3/261545/isolated/preview/0c1e0c11a29ed825bb3410ed9a93655c-estrella-plana-amarilla-brillante.png" alt="reddit Icon" width="22" height="22"> GPI PIA II 2023</a></li>
             <li><a href="/about"><img src="https://img.freepik.com/iconos-gratis/personas_318-585520.jpg" alt="reddit Icon" width="22" height="22"> Sobre nosotros</a></li>
           </ul>
         </nav>
@@ -37,7 +37,7 @@
                                   <th>Números</th>
                                   <th>Palabras</th>
                               </tr>
-                              {% for numero, palabra in glosario_auto_reconocimiento.items() if numero|int =< 2 %}
+                              {% for numero, palabra in glosario_auto_reconocimiento.items() if numero|int <= 2%}
                                   <tr>
                                       <td>{{ numero }}</td>
                                       <td>{{ palabra }}</td>

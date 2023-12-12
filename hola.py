@@ -159,8 +159,8 @@ glosario_regulacion_social = {
 }
 
 
-def juancarlosbodoque():
-    return render_template('juancarlosbodoque.html',
+def index():
+    return render_template('index.html',
                            glosario_capital_emocional=glosario_capital_emocional,
                            glosario_auto_reconocimiento=glosario_auto_reconocimiento,
                            glosario_auto_regulacion=glosario_auto_regulacion,
