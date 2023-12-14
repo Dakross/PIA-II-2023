@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from FEgeneral import migeneral, red_social
 from flask import Flask, render_template, request, send_file
 from graph import grafico_frecuencia, grafico_puntaje
-from glosario import glosario_capital_emocional,glosario_capital_social,glosario_auto_regulacion,glosario_auto_reconocimiento,glosario_reconocimiento,glosario_regulacion_social
+from glosario import glosario_general,glosario_capital_emocional,glosario_capital_social,glosario_auto_regulacion,glosario_auto_reconocimiento,glosario_reconocimiento,glosario_regulacion_social
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
@@ -32,6 +32,9 @@ matriz_peso['Apariciones'] = matriz_peso['Polaridades'].str.lower().map(lambda x
 # Resetea el índice y renumera de 1 a 281
 matriz_peso = matriz_peso.reset_index(drop=True)
 matriz_peso.index = matriz_peso.index + 1
+
+df_threads = red_social(matriz_peso).head(281)
+top_10_df_threads = df_threads.head(10)
 
 # División del DataFrame
 #Capital emocional
@@ -103,32 +106,42 @@ top_10_capital_social = capital_social.head(10)
 top_10_reconocimiento = reconocimiento.head(10)
 top_10_regulacion_social = regulacion_social.head(10)
 
+matriz_general = migeneral(matriz_peso)
+
+top_10_matriz_general = matriz_general.head(10)
 
 def index():
     return render_template('index.html',
-                           glosario_capital_emocional=glosario_capital_emocional,
-                           glosario_auto_reconocimiento=glosario_auto_reconocimiento,
-                           glosario_auto_regulacion=glosario_auto_regulacion,
-                           glosario_capital_social=glosario_capital_social,
-                           glosario_reconocimiento=glosario_reconocimiento,
-                           glosario_regulacion_social=glosario_regulacion_social,
+                            glosario_general=glosario_general,
+                            glosario_capital_emocional=glosario_capital_emocional,
+                            glosario_auto_reconocimiento=glosario_auto_reconocimiento,
+                            glosario_auto_regulacion=glosario_auto_regulacion,
+                            glosario_capital_social=glosario_capital_social,
+                            glosario_reconocimiento=glosario_reconocimiento,
+                            glosario_regulacion_social=glosario_regulacion_social,
 
-                           capital_emocional=[top_10_capital_emocional.to_html(classes='data', header="true")],
-                           auto_reconocimiento=[top_10_auto_reconocimiento.to_html(classes='data', header="true")],
-                           auto_regulacion=[top_10_auto_regulacion.to_html(classes='data', header="true")],
-                           capital_social=[top_10_capital_social.to_html(classes='data', header="true")],
-                           reconocimiento=[top_10_reconocimiento.to_html(classes='data', header="true")],
-                           regulacion_social=[top_10_regulacion_social.to_html(classes='data', header="true")],
+                            matriz_general= [matriz_general.to_html(classes='data', header='true')],
+                            top_10_matriz_general = [top_10_matriz_general.to_html(classes='data', header='true')],
+                            df_threads=[df_threads.to_html(classes='data', header='true')],
 
-                           grafico_capital_emocional='static/grafico_capital_emocional.png',
-                           grafico_auto_reconocimiento='static/grafico_auto_reconocimiento.png',
-                           grafico_auto_regulacion='static/grafico_auto_regulacion.png',
-                           grafico_capital_social='static/grafico_capital_social.png',
-                           grafico_reconocimiento='static/grafico_reconocimiento.png',
-                           grafico_regulacion_social='static/grafico_regulacion_social.png',
-                           grafico_puntaje_capital_emocional='static/grafico_puntaje_capital_emocional.png',
-                           grafico_puntaje_auto_reconocimiento='static/grafico_puntaje_auto_reconocimiento.png',
-                           grafico_puntaje_auto_regulacion='static/grafico_puntaje_auto_regulacion.png',
-                           grafico_puntaje_capital_social='static/grafico_puntaje_capital_social.png',
-                           grafico_puntaje_reconocimiento='static/grafico_puntaje_reconocimiento.png',
-                           grafico_puntaje_regulacion_social='static/grafico_puntaje_regulacion_social.png')
+                            capital_emocional=[top_10_capital_emocional.to_html(classes='data', header="true")],
+                            auto_reconocimiento=[top_10_auto_reconocimiento.to_html(classes='data', header="true")],
+                            auto_regulacion=[top_10_auto_regulacion.to_html(classes='data', header="true")],
+                            capital_social=[top_10_capital_social.to_html(classes='data', header="true")],
+                            reconocimiento=[top_10_reconocimiento.to_html(classes='data', header="true")],
+                            regulacion_social=[top_10_regulacion_social.to_html(classes='data', header="true")],
+
+                            grafico_matriz_general='static/grafico_matriz_general.png',
+                            grafico_puntaje_matriz_general='static/grafico_puntaje_matriz_general.png',
+                            grafico_capital_emocional='static/grafico_capital_emocional.png',
+                            grafico_auto_reconocimiento='static/grafico_auto_reconocimiento.png',
+                            grafico_auto_regulacion='static/grafico_auto_regulacion.png',
+                            grafico_capital_social='static/grafico_capital_social.png',
+                            grafico_reconocimiento='static/grafico_reconocimiento.png',
+                            grafico_regulacion_social='static/grafico_regulacion_social.png',
+                            grafico_puntaje_capital_emocional='static/grafico_puntaje_capital_emocional.png',
+                            grafico_puntaje_auto_reconocimiento='static/grafico_puntaje_auto_reconocimiento.png',
+                            grafico_puntaje_auto_regulacion='static/grafico_puntaje_auto_regulacion.png',
+                            grafico_puntaje_capital_social='static/grafico_puntaje_capital_social.png',
+                            grafico_puntaje_reconocimiento='static/grafico_puntaje_reconocimiento.png',
+                            grafico_puntaje_regulacion_social='static/grafico_puntaje_regulacion_social.png')

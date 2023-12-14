@@ -161,7 +161,7 @@ button[type="submit"] {
 }
 
 .accordion-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #003335;
 }
 
 .accordion-btn:after {
@@ -292,8 +292,6 @@ body {
   color: #333;
 }
 
-
-
 .content {
   background-color: #fff;
   padding: 20px;
@@ -330,10 +328,11 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px;
   color: #fff;
   background-color: #007bff;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .btn-primary {

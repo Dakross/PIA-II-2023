@@ -16,15 +16,79 @@
         </nav>
         <div class="content">
           <h1>Proyecto PIA II 2023</h1>
-           <!-- Acordeón Capital Emocional -->
-           <button class="accordion-btn">Capital Emocional</button>
-           <div class="accordion-content">
+            <!-- Acordeón Capital Emocional -->
+            <button class="accordion-btn">Factores Emocionales</button>
+            <div class="accordion-content">
+                <div class="glosario">
+                    <h2>Glosario</h2>
+                    
+                    <!-- Contenedor para las dos tablas en paralelo -->
+                    <div class="tabla-container">
+                        <!-- Primera tabla -->
+                        <table class="glosario-table">
+                            <tr>
+                                <th>Números</th>
+                                <th>Palabras</th>
+                            </tr>
+                            {% for numero, palabra in glosario_general.items() if numero|int <= 9%}
+                                <tr>
+                                    <td>{{ numero }}</td>
+                                    <td>{{ palabra }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+
+                        <!-- Segunda tabla -->
+                        <table class="glosario-table">
+                            <tr>
+                                <th>Números</th>
+                                <th>Palabras</th>
+                            </tr>
+                            {% for numero, palabra in glosario_general.items() if numero|int > 9 %}
+                                <tr>
+                                    <td>{{ numero }}</td>
+                                    <td>{{ palabra }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
+
+                    <!-- <div id="top_10_matriz_general">
+                        {% for table in matriz_general %}
+                                        {{ table|safe }}
+                                        {% endfor %}
+                    </div>
+
+                    <div id="matriz_general" style="display:none;">
+                        {% for table in top_10_matriz_general %}
+                                        {{ table|safe }}
+                                        {% endfor %}
+                    </div> -->
+                    <div id="matriz_general">
+                        {% for table in matriz_general %}
+                                        {{ table|safe }}
+                                        {% endfor %}
+                    </div>
+
+                    <div id="top_10_matriz_general" style="display:none;">
+                        {% for table in df_threads %}
+                                        {{ table|safe }}
+                                        {% endfor %}
+                    </div>
+                </div>
+                <img src="{{ grafico_matriz_general }}" alt="Gráfico">
+                <img src="{{ grafico_puntaje_matriz_general }}" alt="Gráfico">
+            </div>
+            <!-- Acordeón Capital Emocional -->
+            <button class="accordion-btn">Capital Emocional</button>
+            <div class="accordion-content">
                <!-- Contenido del acordeón Capital Emocional -->
 
-               <!-- Acordeón Auto Reconocimiento -->
-               <button class="sub-accordion-btn">Auto Reconocimiento</button>
-               <div class="sub-accordion-content">                    
-                   <!-- Contenido del acordeón Auto Reconocimiento -->
+                <!-- Acordeón Auto Reconocimiento -->
+                <button class="sub-accordion-btn">Auto Reconocimiento</button>
+                <div class="sub-accordion-content">                    
+                    <!-- Contenido del acordeón Auto Reconocimiento -->
                     <!-- Glosario -->
                     <div class="glosario">
                       <h2>Glosario</h2>
@@ -312,32 +376,46 @@
    </div>
 
    <script>
-       const accordionBtns = document.querySelectorAll('.accordion-btn');
-       const subAccordionBtns = document.querySelectorAll('.sub-accordion-btn');
+        const accordionBtns = document.querySelectorAll('.accordion-btn');
+        const subAccordionBtns = document.querySelectorAll('.sub-accordion-btn');
 
-       accordionBtns.forEach(btn => {
-           btn.addEventListener('click', () => {
-               btn.classList.toggle('active');
-               const accordionContent = btn.nextElementSibling;
-               if (accordionContent.style.maxHeight) {
-                   accordionContent.style.maxHeight = null;
-               } else {
-                   accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-               }
-           });
-       });
+        accordionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const accordionContent = btn.nextElementSibling;
+                if (accordionContent.style.maxHeight) {
+                    accordionContent.style.maxHeight = null;
+                } else {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                }
+            });
+        });
 
-       subAccordionBtns.forEach(btn => {
-           btn.addEventListener('click', () => {
-               btn.classList.toggle('active');
-               const subAccordionContent = btn.nextElementSibling;
-               if (subAccordionContent.style.maxHeight) {
-                   subAccordionContent.style.maxHeight = null;
-               } else {
-                   subAccordionContent.style.maxHeight = subAccordionContent.scrollHeight + 'px';
-               }
-           });
-       });
+        subAccordionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const subAccordionContent = btn.nextElementSibling;
+                if (subAccordionContent.style.maxHeight) {
+                    subAccordionContent.style.maxHeight = null;
+                } else {
+                    subAccordionContent.style.maxHeight = subAccordionContent.scrollHeight + 'px';
+                }
+            });
+        });
+
+       function toggleData() {
+            var top10 = document.getElementById('top_10_matriz_general');
+            var general = document.getElementById('matriz_general');
+
+            if (top10.style.display === 'none' || top10.style.display === '') {
+                top10.style.display = 'block';
+                general.style.display = 'none';
+            } else {
+                top10.style.display = 'none';
+                general.style.display = 'block';
+                general.style.overflow = 'auto';
+            }
+        }
    </script>
 </body>
 </html>
