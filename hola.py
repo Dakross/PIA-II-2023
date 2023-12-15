@@ -33,11 +33,13 @@ matriz_peso['Apariciones'] = matriz_peso['Polaridades'].str.lower().map(lambda x
 matriz_peso = matriz_peso.reset_index(drop=True)
 matriz_peso.index = matriz_peso.index + 1
 
-df_threads = red_social(matriz_peso, 'Threads')
-df_twitter = red_social(matriz_peso, 'Twitter')
-df_reddit = red_social(matriz_peso, 'Reddit')
+df_threads = red_social(matriz_peso.copy(),'Threads')
+df_twitter = red_social(matriz_peso.copy(),'Twitter')
+df_reddit = red_social(matriz_peso.copy(),'Reddit')
 
 top_10_df_threads = df_threads.head(10)
+top_10_df_twitter = df_twitter.head(10)
+top_10_df_reddit = df_reddit.head(10)
 
 # División del DataFrame
 #Capital emocional
@@ -109,8 +111,7 @@ top_10_capital_social = capital_social.head(10)
 top_10_reconocimiento = reconocimiento.head(10)
 top_10_regulacion_social = regulacion_social.head(10)
 
-matriz_general = migeneral(matriz_peso)
-
+matriz_general = migeneral(matriz_peso.copy())
 top_10_matriz_general = matriz_general.head(10)
 
 def index():
@@ -125,7 +126,16 @@ def index():
 
                             matriz_general= [matriz_general.to_html(classes='data', header='true')],
                             top_10_matriz_general = [top_10_matriz_general.to_html(classes='data', header='true')],
+                            
                             df_threads=[df_threads.to_html(classes='data', header='true')],
+                            top_10_df_threads=[top_10_df_threads.to_html(classes='data', header='true')],
+
+                            df_twitter=[df_twitter.to_html(classes='data', header='true')],
+                            top_10_df_twitter=[top_10_df_twitter.to_html(classes='data', header='true')],
+                            
+                            df_reddit=[df_reddit.to_html(classes='data', header='true')],
+                            top_10_df_reddit=[top_10_df_reddit.to_html(classes='data', header='true')],
+
 
                             capital_emocional=[top_10_capital_emocional.to_html(classes='data', header="true")],
                             auto_reconocimiento=[top_10_auto_reconocimiento.to_html(classes='data', header="true")],

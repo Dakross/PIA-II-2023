@@ -53,29 +53,56 @@
                         </table>
                     </div>
                     <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
+                        <div id="top_10_matriz_general">
+                            {% for table in matriz_general %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
 
-                    <!-- <div id="top_10_matriz_general">
-                        {% for table in matriz_general %}
-                                        {{ table|safe }}
-                                        {% endfor %}
-                    </div>
+                        <div id="matriz_general" style="display:none;">
+                            {% for table in top_10_matriz_general %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
 
-                    <div id="matriz_general" style="display:none;">
-                        {% for table in top_10_matriz_general %}
-                                        {{ table|safe }}
-                                        {% endfor %}
-                    </div> -->
-                    <div id="matriz_general">
-                        {% for table in matriz_general %}
-                                        {{ table|safe }}
-                                        {% endfor %}
-                    </div>
+                    <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
+                        <div id="df_threads">
+                            {% for table in df_threads %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
 
-                    <div id="top_10_matriz_general" style="display:none;">
-                        {% for table in df_threads %}
-                                        {{ table|safe }}
-                                        {% endfor %}
-                    </div>
+                        <div id="top_10_df_threads" style="display:none;">
+                            {% for table in top_10_df_threads %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
+
+                    <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
+                        <div id="df_twitter">
+                            {% for table in df_twitter %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
+
+                        <div id="top_10_df_twitter" style="display:none;">
+                            {% for table in top_10_df_twitter %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
+                    
+                    <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
+                        <div id="df_reddit">
+                            {% for table in df_reddit %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
+
+                        <div id="top_10_df_reddit" style="display:none;">
+                            {% for table in top_10_df_reddit %}
+                                            {{ table|safe }}
+                                            {% endfor %}
+                        </div>
                 </div>
                 <img src="{{ grafico_matriz_general }}" alt="Gráfico">
                 <img src="{{ grafico_puntaje_matriz_general }}" alt="Gráfico">
