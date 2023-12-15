@@ -1,0 +1,74 @@
+<h1 class="text-center">Proyecto PIA II 2023</h1>
+<h2 id="Factores Emocionales"><a href="#Factores Emocionales"># Factores Emocionales</a></h2>
+<h4 id="Glosario"><a href="#Glosario">Glosario</a></h4>
+        
+<!-- Contenedor para las dos tablas en paralelo -->
+<div class="tabla-container">
+    <!-- Primera tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_general.items() if numero|int <= 9%}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Segunda tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_general.items() if numero|int > 9 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="col-sm-12 text-center mt-3">
+    <button class="btn btn-md" onclick="mostrarTabla('general')">General</button>
+    <button class="btn btn-md" onclick="mostrarTabla('threads')">Threads</button>
+    <button class="btn btn-md" onclick="mostrarTabla('twitter')">Twitter</button>
+    <button class="btn btn-md" onclick="mostrarTabla('reddit')">Reddit</button>
+</div>
+
+<!-- Contenedor para las tablas -->
+<div class="row mt-3">
+    <div class="col-sm-12 text-center tabla-container table-container table table-striped">
+        <!-- Tabla General -->
+        <div id="tabla-general" class="tablas_FA">
+            {% for table in matriz_general %}
+                            {{ table|safe }}
+                            {% endfor %}
+        </div>
+        <!-- Tabla Threads -->
+        <div id="tabla-threads" class="tablas_FA" style="display: none;">
+            {% for table in df_threads %}
+                            {{ table|safe }}
+                            {% endfor %}
+        </div>
+        <!-- Tabla Twitter -->
+        <div id="tabla-twitter" class="tablas_FA" style="display: none;">
+            {% for table in df_twitter %}
+                            {{ table|safe }}
+                            {% endfor %}
+        </div>
+        <!-- Tabla Reddit -->
+        <div id="tabla-reddit" class="tablas_FA" style="display: none;">
+            {% for table in df_reddit %}
+                            {{ table|safe }}
+                            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="tabla-container table-container">
+    <img src="{{ grafico_matriz_general }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_matriz_general }}" alt="Gráfico">
+</div>

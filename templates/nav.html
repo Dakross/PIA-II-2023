@@ -1,0 +1,62 @@
+{% from "macros/svgs.html" import moon, sun %}
+<div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar position-fixed fixed-top h-100">
+        <a
+        href="{{ url_for('toggle_theme', current_page=request.path) }}" class="nav__link">
+        <span class="navbar-toggler-icon">
+            {% if theme == "dark" %}
+                {{ sun("nav__icon") }}
+            {% else %}
+                {{ moon("nav__icon") }}
+            {% endif %}
+        </span>
+        </a>
+        <div class="sidebar-sticky text-center">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active text-left" href="#Factores Emocionales">
+                        Factores Emocionales
+                    </a>
+                </li>
+                <ul class="text-left">
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link text-left" href="#Capital Emocional">
+                        Capital Emocional
+                    </a>
+                </li>
+                <ul class="text-left">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Auto Reconocimiento">
+                            Auto Reconocimiento
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Auto Regulacion">
+                            Auto Regulación
+                        </a>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link text-left" href="#Capital Relacional">
+                        Capital Relacional
+                    </a>
+                </li>
+                <ul class="text-left">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Reconocimiento Social">
+                            Reconocimiento Social
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Regulacion Social">
+                            Regulación Social
+                        </a>
+                    </li>
+                </ul>
+                <!-- Agrega más opciones según sea necesario -->
+            </ul>
+        </div>
+    </nav>
+</div>

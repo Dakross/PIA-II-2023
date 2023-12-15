@@ -1,0 +1,135 @@
+<h2 id="Capital Relacional"><a href="#Capital Relacional"># Capital Relacional</a></h2>
+<h4 id="Glosario Capital Relacional"><a href="#Glosario Capital Relacional">Glosario</a></h4>
+<div class="tabla-container">
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_capital_social.items() if numero|int <= 13 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_capital_social.items() if numero|int > 13 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in capital_social %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+<div class="tabla-container table-container">
+    <img src="{{ grafico_capital_social }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_capital_social }}" alt="Gráfico">
+</div>
+
+<h3 id="Reconocimiento Social"><a href="#Reconocimiento Social"># Reconocimiento Social</a></h3>
+<h4 id="Glosario Reconocimiento Social"><a href="#Glosario Reconocimiento Social">Glosario</a></h4>
+<div class="tabla-container">
+    <!-- Primera tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_reconocimiento.items() if numero|int <= 9 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Segunda tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_reconocimiento.items() if numero|int > 9 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in reconocimiento %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+
+<div class="tabla-container table-container">
+    <img src="{{ grafico_reconocimiento }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_reconocimiento }}" alt="Gráfico">
+</div>
+
+<h3 id="Regulacion Social"><a href="#Regulacion Social"># Regulación Social</a></h3>
+<h4 id="Glosario Regulacion Social"><a href="#Glosario Regulacion Social">Glosario</a></h4>
+
+<div class="tabla-container">
+    <!-- Primera tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_regulacion_social.items() if numero|int <= 14 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Segunda tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_regulacion_social.items() if numero|int > 14 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in regulacion_social %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+
+<div class="tabla-container table-container">
+    <img src="{{ grafico_regulacion_social }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_regulacion_social }}" alt="Gráfico">
+</div>
+
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in capital_social %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+
+<div class="tabla-container table-container">
+    <img src="{{ grafico_capital_social }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_capital_social }}" alt="Gráfico">
+</div>

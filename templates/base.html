@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" class="{{ 'dark-mode' if session.get('theme') == 'dark' }}">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/styles.css") }}">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+        
+        <title>PIA II 2023</title>
+        
+    {% endblock %}
+</head>
+<body>
+    <div class="container-fluid">
+        {% include 'nav.html' %}
+        {% block content %}
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+           {%include 'factores_emocionales.html'%}
+           <br/>
+           {%include 'capital_emocional.html'%}
+           <br/>
+           {%include 'capital_relacional.html'%}
+
+        </main>
+        {% endblock %}
+    </div>
+    {% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $('#matriz_general').DataTable({
+            ajax: [{
+                url: '{{ url_for('indexado') }}',
+                dataSrc : ''
+            }],
+            serverSide: true,
+            columns: [
+                {data: 'usfr_id'},
+                {data: 'username'},
+                {data: 'email'},
+                {data: 'language'},
+                {data: 'registered_on'},
+                {data: 'confirmed_on'},
+                {data: 'confirmed', orderable: false},
+                {data: 'admin', orderable: false},
+                {data: 'superadmin', orderable: false}
+            ],
+            });
+        });
+        
+        function mostrarTabla(tablaId) {
+            // Ocultar todas las tablas
+            document.querySelectorAll('.tablas_FA').forEach(function(tabla) {
+                tabla.style.display = 'none';
+            });
+
+            // Mostrar la tabla seleccionada
+            document.getElementById('tabla-' + tablaId).style.display = 'block';
+        }
+    </script>
+    {{ bootstrap.load_js() }}
+    {% endblock %}
+</body>
+</html>

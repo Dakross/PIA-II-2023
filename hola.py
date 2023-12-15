@@ -111,7 +111,7 @@ matriz_general = migeneral(matriz_peso.copy())
 top_10_matriz_general = matriz_general.head(10)
 
 def index():
-    return render_template('index.html',
+    return render_template('base.html',
                             glosario_general=glosario_general,
                             glosario_capital_emocional=glosario_capital_emocional,
                             glosario_auto_reconocimiento=glosario_auto_reconocimiento,
@@ -121,7 +121,7 @@ def index():
                             glosario_regulacion_social=glosario_regulacion_social,
 
                             matriz_general= [matriz_general.to_html(classes='data', header='true')],
-                            top_10_matriz_general = [top_10_matriz_general.to_html(classes='data', header='true')],
+                            top_10_matriz_general = [top_10_matriz_general.to_html(classes='', header='true')],
                             
                             df_threads=[df_threads.to_html(classes='data', header='true')],
                             df_twitter=[df_twitter.to_html(classes='data', header='true')],

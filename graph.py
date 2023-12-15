@@ -24,6 +24,8 @@ def grafico_frecuencia(data, filename):
 
     # Guardar la figura en un archivo
     plt.savefig(filename)
+    plt.switch_backend('agg')
+    plt.close()
 
 
 def grafico_puntaje(data, filename):
@@ -53,3 +55,5 @@ def grafico_puntaje(data, filename):
 
     # Guardar la figura en un archivo
     plt.savefig(filename)
+    plt.switch_backend('agg')
+    plt.close()

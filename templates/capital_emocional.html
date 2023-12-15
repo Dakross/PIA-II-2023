@@ -1,0 +1,132 @@
+<h2 id="Capital Emocional" ><a href="#Capital Emocional"># Capital Emocional</a></h2>
+<h4 id="Glosario Auto Regulacion 2"><a href="#Glosario Auto Regulacion 2">Glosario</a></h4>
+    <!-- Contenedor para las dos tablas en paralelo -->
+    <div class="tabla-container">
+        <!-- Primera tabla -->
+        <table class="table">
+            <tr>
+                <th>Números</th>
+                <th>Palabras</th>
+            </tr>
+            {% for numero, palabra in glosario_capital_emocional.items() if numero|int <= 4 %}
+                <tr>
+                    <td>{{ numero }}</td>
+                    <td>{{ palabra }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Segunda tabla -->
+        <table class="table">
+            <tr>
+                <th>Números</th>
+                <th>Palabras</th>
+            </tr>
+            {% for numero, palabra in glosario_capital_emocional.items() if numero|int > 4 %}
+                <tr>
+                    <td>{{ numero }}</td>
+                    <td>{{ palabra }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in capital_emocional %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+
+<div class="tabla-container table-container">
+    <img src="{{ grafico_capital_emocional }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_capital_emocional }}" alt="Gráfico">
+</div>
+<br/>
+<h3 id="Auto Reconocimiento"><a href="#Auto Reconocimiento"># Auto Reconocimiento</a></h3>
+<h4 id="Glosario Auto Reconocimiento"><a href="#Glosario Auto Reconocimiento">Glosario</a></h4>
+
+<!-- Contenedor para las dos tablas en paralelo -->
+<div class="tabla-container">
+    <!-- Primera tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_auto_reconocimiento.items() if numero|int <= 2 %}
+        <tr>
+            <td>{{ numero }}</td>
+            <td>{{ palabra }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <!-- Segunda tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_auto_reconocimiento.items() if numero|int > 2 %}
+        <tr>
+            <td>{{ numero }}</td>
+            <td>{{ palabra }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    <table class="tabla">
+        {% for table in auto_reconocimiento %}
+            {{ table|safe }}
+        {% endfor %}
+    </table>
+</div>
+
+<div class="tabla-container table-container">
+    <img src="{{ grafico_auto_reconocimiento }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_auto_reconocimiento }}" alt="Gráfico">
+</div>
+
+<br/>
+<h3 id="Auto Regulacion" ><a href="#Auto Regulacion"># Auto Regulación</a></h3>
+<h4 id="Glosario Auto Regulacion"><a href="#Glosario Auto Regulacion">Glosario</a></h4>
+<!-- Contenedor para las dos tablas en paralelo -->
+<div class="tabla-container">
+    <!-- Primera tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_auto_regulacion.items() if numero|int <= 5 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Segunda tabla -->
+    <table class="table">
+        <tr>
+            <th>Números</th>
+            <th>Palabras</th>
+        </tr>
+        {% for numero, palabra in glosario_auto_regulacion.items() if numero|int > 5 %}
+            <tr>
+                <td>{{ numero }}</td>
+                <td>{{ palabra }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="col-sm-12 text-center tabla-container table-container table table-striped">
+    {% for table in auto_regulacion %}
+        {{ table|safe }}
+    {% endfor %}
+</div>
+<div class="tabla-container table-container">
+    <img src="{{ grafico_auto_regulacion }}" alt="Gráfico">
+    <img src="{{ grafico_puntaje_auto_regulacion }}" alt="Gráfico">
+</div>
