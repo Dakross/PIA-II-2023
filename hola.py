@@ -33,7 +33,10 @@ matriz_peso['Apariciones'] = matriz_peso['Polaridades'].str.lower().map(lambda x
 matriz_peso = matriz_peso.reset_index(drop=True)
 matriz_peso.index = matriz_peso.index + 1
 
-df_threads = red_social(matriz_peso).head(281)
+df_threads = red_social(matriz_peso, 'Threads')
+df_twitter = red_social(matriz_peso, 'Twitter')
+df_reddit = red_social(matriz_peso, 'Reddit')
+
 top_10_df_threads = df_threads.head(10)
 
 # División del DataFrame
