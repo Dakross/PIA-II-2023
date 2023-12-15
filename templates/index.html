@@ -59,12 +59,6 @@
                                             {% endfor %}
                         </div>
 
-                        <div id="matriz_general" style="display:none;">
-                            {% for table in top_10_matriz_general %}
-                                            {{ table|safe }}
-                                            {% endfor %}
-                        </div>
-
                     <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
                         <div id="df_threads">
                             {% for table in df_threads %}
@@ -72,21 +66,9 @@
                                             {% endfor %}
                         </div>
 
-                        <div id="top_10_df_threads" style="display:none;">
-                            {% for table in top_10_df_threads %}
-                                            {{ table|safe }}
-                                            {% endfor %}
-                        </div>
-
                     <button class = "btn" onclick="toggleData()">Cambiar Datos</button>
                         <div id="df_twitter">
                             {% for table in df_twitter %}
-                                            {{ table|safe }}
-                                            {% endfor %}
-                        </div>
-
-                        <div id="top_10_df_twitter" style="display:none;">
-                            {% for table in top_10_df_twitter %}
                                             {{ table|safe }}
                                             {% endfor %}
                         </div>
@@ -98,11 +80,6 @@
                                             {% endfor %}
                         </div>
 
-                        <div id="top_10_df_reddit" style="display:none;">
-                            {% for table in top_10_df_reddit %}
-                                            {{ table|safe }}
-                                            {% endfor %}
-                        </div>
                 </div>
                 <img src="{{ grafico_matriz_general }}" alt="Gráfico">
                 <img src="{{ grafico_puntaje_matriz_general }}" alt="Gráfico">
@@ -431,8 +408,8 @@
         });
 
        function toggleData() {
-            var top10 = document.getElementById('top_10_matriz_general');
-            var general = document.getElementById('matriz_general');
+            var top10 = document.getElementById('matriz_general');
+            var general = document.getElementById('df_threads');
 
             if (top10.style.display === 'none' || top10.style.display === '') {
                 top10.style.display = 'block';

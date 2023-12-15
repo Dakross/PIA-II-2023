@@ -37,10 +37,6 @@ df_threads = red_social(matriz_peso.copy(),'Threads')
 df_twitter = red_social(matriz_peso.copy(),'Twitter')
 df_reddit = red_social(matriz_peso.copy(),'Reddit')
 
-top_10_df_threads = df_threads.head(10)
-top_10_df_twitter = df_twitter.head(10)
-top_10_df_reddit = df_reddit.head(10)
-
 # División del DataFrame
 #Capital emocional
 capital_emocional = matriz_peso[['Polaridades','1', '2', '3','4', '5', '6', '7', 'Apariciones']]
@@ -128,14 +124,8 @@ def index():
                             top_10_matriz_general = [top_10_matriz_general.to_html(classes='data', header='true')],
                             
                             df_threads=[df_threads.to_html(classes='data', header='true')],
-                            top_10_df_threads=[top_10_df_threads.to_html(classes='data', header='true')],
-
                             df_twitter=[df_twitter.to_html(classes='data', header='true')],
-                            top_10_df_twitter=[top_10_df_twitter.to_html(classes='data', header='true')],
-                            
                             df_reddit=[df_reddit.to_html(classes='data', header='true')],
-                            top_10_df_reddit=[top_10_df_reddit.to_html(classes='data', header='true')],
-
 
                             capital_emocional=[top_10_capital_emocional.to_html(classes='data', header="true")],
                             auto_reconocimiento=[top_10_auto_reconocimiento.to_html(classes='data', header="true")],
