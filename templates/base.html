@@ -34,34 +34,21 @@
     </div>
     {% block scripts %}
     <script>
-        $(document).ready(function () {
-            $('#matriz_general').DataTable({
-            ajax: [{
-                dataSrc : ''
-            }],
-            serverSide: true,
-            columns: [
-                {data: 'usfr_id'},
-                {data: 'username'},
-                {data: 'email'},
-                {data: 'language'},
-                {data: 'registered_on'},
-                {data: 'confirmed_on'},
-                {data: 'confirmed', orderable: false},
-                {data: 'admin', orderable: false},
-                {data: 'superadmin', orderable: false}
-            ],
-            });
-        });
-        
         function mostrarTabla(tablaId) {
             // Ocultar todas las tablas
             document.querySelectorAll('.tablas_FA').forEach(function(tabla) {
                 tabla.style.display = 'none';
             });
-
+        
             // Mostrar la tabla seleccionada
             document.getElementById('tabla-' + tablaId).style.display = 'block';
+        
+            // Ocultar todos los gráficos
+            document.querySelectorAll('.graficos_FA').forEach(function(grafico) {
+                grafico.style.display = 'none';
+            });
+
+            document.getElementById('grafico-' + tablaId).style.display = 'block';
         }
     </script>
     {{ bootstrap.load_js() }}

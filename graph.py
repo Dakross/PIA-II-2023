@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 def grafico_frecuencia(data, filename):
     # Ordenar el DataFrame por 'Apariciones' en orden descendente
@@ -57,3 +58,17 @@ def grafico_puntaje(data, filename):
     plt.savefig(filename)
     plt.switch_backend('agg')
     plt.close()
+
+def wordcloud(data, filename):
+    # Capitalizar la primera letra de cada palabra
+    data['Polaridades'] = data['Polaridades'].apply(lambda x: ' '.join(word.capitalize() for word in x.split()))
+
+    # Ordenar el DataFrame por la columna "Apariciones" de mayor a menor
+    data = data.sort_values(by='Apariciones', ascending=False)
+
+    words = ' '.join(data['Polaridades'].astype(str))
+
+    wc = WordCloud(background_color="white").generate(words)
+
+    # Guardar la figura en un archivo
+    wc.to_file(f"static/{filename}")

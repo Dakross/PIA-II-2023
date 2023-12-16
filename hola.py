@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from FEgeneral import migeneral, red_social
 from flask import Flask, render_template, request, send_file
-from graph import grafico_frecuencia, grafico_puntaje
+from graph import grafico_frecuencia, grafico_puntaje, wordcloud
 from glosario import glosario_general,glosario_capital_emocional,glosario_capital_social,glosario_auto_regulacion,glosario_auto_reconocimiento,glosario_reconocimiento,glosario_regulacion_social
 
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -110,6 +110,12 @@ top_10_regulacion_social = regulacion_social.head(10)
 matriz_general = migeneral(matriz_peso.copy())
 top_10_matriz_general = matriz_general.head(10)
 
+wordcloud_matriz_general = wordcloud(matriz_general, 'wordcloud_matriz_general.png')
+wordcloud_df_threads = wordcloud(df_threads, 'wordcloud_df_threads.png')
+wordcloud_twitter = wordcloud(df_twitter, 'wordcloud_twitter.png')
+wordcloud_reddit = wordcloud(df_reddit, 'wordcloud_reddit.png')
+
+
 def index():
     return render_template('base.html',
                             glosario_general=glosario_general,
@@ -147,4 +153,10 @@ def index():
                             grafico_puntaje_auto_regulacion='static/grafico_puntaje_auto_regulacion.png',
                             grafico_puntaje_capital_social='static/grafico_puntaje_capital_social.png',
                             grafico_puntaje_reconocimiento='static/grafico_puntaje_reconocimiento.png',
-                            grafico_puntaje_regulacion_social='static/grafico_puntaje_regulacion_social.png')
+                            grafico_puntaje_regulacion_social='static/grafico_puntaje_regulacion_social.png',
+                            
+                            wordcloud_matriz_general='static/wordcloud_matriz_general.png',
+                            wordcloud_df_threads='static/wordcloud_df_threads.png',
+                            wordcloud_df_twitter='static/wordcloud_twitter.png',
+                            wordcloud_df_reddit='static/wordcloud_reddit.png'
+                            )
