@@ -59,7 +59,7 @@ def grafico_puntaje(data, filename):
     plt.switch_backend('agg')
     plt.close()
 
-def wordcloud(data, filename):
+def wordcloud(data, filename, width=800, height=400):
     # Capitalizar la primera letra de cada palabra
     data['Polaridades'] = data['Polaridades'].apply(lambda x: ' '.join(word.capitalize() for word in x.split()))
 
@@ -68,7 +68,8 @@ def wordcloud(data, filename):
 
     words = ' '.join(data['Polaridades'].astype(str))
 
-    wc = WordCloud(background_color="white").generate(words)
+    # Ajustar el tamaño de la WordCloud
+    wc = WordCloud(width=width, height=height, background_color="white").generate(words)
 
     # Guardar la figura en un archivo
     wc.to_file(f"static/{filename}")
