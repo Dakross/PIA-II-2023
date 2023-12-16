@@ -37,7 +37,6 @@
         $(document).ready(function () {
             $('#matriz_general').DataTable({
             ajax: [{
-                url: '{{ url_for('indexado') }}',
                 dataSrc : ''
             }],
             serverSide: true,

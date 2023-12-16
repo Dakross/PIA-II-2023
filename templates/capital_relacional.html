@@ -1,7 +1,7 @@
 <h2 id="Capital Relacional"><a href="#Capital Relacional"># Capital Relacional</a></h2>
 <h4 id="Glosario Capital Relacional"><a href="#Glosario Capital Relacional">Glosario</a></h4>
 <div class="tabla-container">
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -13,7 +13,7 @@
             </tr>
         {% endfor %}
     </table>
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -31,7 +31,7 @@
         {{ table|safe }}
     {% endfor %}
 </div>
-<div class="tabla-container table-container">
+<div class="imagenes">
     <img src="{{ grafico_capital_social }}" alt="Gráfico">
     <img src="{{ grafico_puntaje_capital_social }}" alt="Gráfico">
 </div>
@@ -40,7 +40,7 @@
 <h4 id="Glosario Reconocimiento Social"><a href="#Glosario Reconocimiento Social">Glosario</a></h4>
 <div class="tabla-container">
     <!-- Primera tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -54,7 +54,7 @@
     </table>
 
     <!-- Segunda tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -74,7 +74,7 @@
     {% endfor %}
 </div>
 
-<div class="tabla-container table-container">
+<div class="imagenes">
     <img src="{{ grafico_reconocimiento }}" alt="Gráfico">
     <img src="{{ grafico_puntaje_reconocimiento }}" alt="Gráfico">
 </div>
@@ -84,7 +84,7 @@
 
 <div class="tabla-container">
     <!-- Primera tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -98,7 +98,7 @@
     </table>
 
     <!-- Segunda tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -118,18 +118,7 @@
     {% endfor %}
 </div>
 
-<div class="tabla-container table-container">
+<div class="imagenes">
     <img src="{{ grafico_regulacion_social }}" alt="Gráfico">
     <img src="{{ grafico_puntaje_regulacion_social }}" alt="Gráfico">
-</div>
-
-<div class="col-sm-12 text-center tabla-container table-container table table-striped">
-    {% for table in capital_social %}
-        {{ table|safe }}
-    {% endfor %}
-</div>
-
-<div class="tabla-container table-container">
-    <img src="{{ grafico_capital_social }}" alt="Gráfico">
-    <img src="{{ grafico_puntaje_capital_social }}" alt="Gráfico">
 </div>

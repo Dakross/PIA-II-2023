@@ -15,11 +15,11 @@ def grafico_frecuencia(data, filename):
         height = int(p.get_height())
         width = p.get_width()
         x, y = p.get_x(), p.get_y()
-        ax.annotate(f'{height}', (x + width / 2, min(y + height, 1200)),
+        ax.annotate(f'{height}', (x + width / 2, min(y + height, 1300)),
                     ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 
     # Ajustar el diseño para asegurar que las etiquetas no se corten
-    plt.ylim(0, 1200)
+    plt.ylim(0, 1300)
     plt.tight_layout()
 
     # Guardar la figura en un archivo
@@ -46,11 +46,11 @@ def grafico_puntaje(data, filename):
         height = p.get_height()
         width = p.get_width()
         x, y = p.get_x(), p.get_y()
-        ax.annotate(f'{height:.1f}', (x + width / 2, min(y + height, 1200)),
+        ax.annotate(f'{height:.1f}', (x + width / 2, min(y + height, 1250)),
                     ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 
     # Ajustar el diseño para asegurar que las etiquetas no se corten
-    plt.ylim(0, 1200)
+    plt.ylim(0, 1250)
     plt.tight_layout()
 
     # Guardar la figura en un archivo

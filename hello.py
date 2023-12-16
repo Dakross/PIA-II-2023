@@ -32,4 +32,4 @@ def toggle_theme():
     return redirect(request.args.get("current_page"))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

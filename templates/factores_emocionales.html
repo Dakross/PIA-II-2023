@@ -1,11 +1,11 @@
-<h1 class="text-center">Proyecto PIA II 2023</h1>
+<h1 class="titulo">Proyecto PIA II 2023</h1>
 <h2 id="Factores Emocionales"><a href="#Factores Emocionales"># Factores Emocionales</a></h2>
 <h4 id="Glosario"><a href="#Glosario">Glosario</a></h4>
         
 <!-- Contenedor para las dos tablas en paralelo -->
 <div class="tabla-container">
     <!-- Primera tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -19,7 +19,7 @@
     </table>
 
     <!-- Segunda tabla -->
-    <table class="table">
+    <table class="glosario-table">
         <tr>
             <th>Números</th>
             <th>Palabras</th>
@@ -33,10 +33,10 @@
     </table>
 </div>
 <div class="col-sm-12 text-center mt-3">
-    <button class="btn btn-md" onclick="mostrarTabla('general')">General</button>
-    <button class="btn btn-md" onclick="mostrarTabla('threads')">Threads</button>
-    <button class="btn btn-md" onclick="mostrarTabla('twitter')">Twitter</button>
-    <button class="btn btn-md" onclick="mostrarTabla('reddit')">Reddit</button>
+    <button class="btn btn-info" onclick="mostrarTabla('general')">General</button>
+    <button class="btn btn-info" onclick="mostrarTabla('threads')">Threads</button>
+    <button class="btn btn-info" onclick="mostrarTabla('twitter')">Twitter</button>
+    <button class="btn btn-info" onclick="mostrarTabla('reddit')">Reddit</button>
 </div>
 
 <!-- Contenedor para las tablas -->
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-<div class="tabla-container table-container">
+<div class="imagenes">
     <img src="{{ grafico_matriz_general }}" alt="Gráfico">
     <img src="{{ grafico_puntaje_matriz_general }}" alt="Gráfico">
 </div>

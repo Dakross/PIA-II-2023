@@ -22,7 +22,7 @@ h4 {
 }
 
 a, a:hover {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
   background-color: transparent;
 }
@@ -55,4 +55,57 @@ tr, th, td {
   --tag-colour: var(--accent-colour-2);
 
   --border: 3px solid #fff;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #0b8693;
+  color: #fff;
+}
+
+.glosario {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tabla-container {
+  display: flex;
+  justify-content: center; /* Alinea el contenido al centro horizontalmente */
+}
+
+.glosario-table {
+  width: 40%;
+  margin: 10px;
+  border-collapse: collapse;
+  font-size: 14px; /* Ajusta el tamaño del texto */
+}
+
+.glosario-table th, .glosario-table td {
+  border: 1px solid #ddd;
+  padding: 6px; /* Reduce el espacio interno */
+  text-align: center;
+}
+
+.glosario-table th {
+  background-color: #0b8693;
+}
+
+.imagenes {
+  overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.titulo{
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
 }
