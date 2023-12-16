@@ -109,3 +109,73 @@ a {
   font-weight: bold;
   text-align: center;
 }
+
+.accordion-btn {
+  background-color: #005760;
+  color: #fff;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  text-align: center;
+  border: 3px solid #333;
+  outline: none;
+  transition: background-color 0.3s ease;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+.accordion-btn:hover {
+  background-color: #003335;
+}
+
+.accordion-btn:after {
+  content: '+';
+  float: right;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.accordion-btn.active:after {
+  content: '-';
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: center;
+}
+
+.accordion-content p {
+  padding: 12px;
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  background-color: #f7f7f7;
+  text-align: justify;
+}
+
+.collectionViewItems {
+  /* Agrega aquí los estilos deseados para los elementos de la tabla */
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  /* Otros estilos... */
+}
+
+/* Estilos para el contenedor principal */
+.grafico-central {
+  text-align: center; /* Centra los elementos hijos horizontalmente */
+}
+
+/* Estilos para los gráficos dentro de grafico-central */
+.graficos_FA img {
+  width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor padre */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  max-width: 650px; /* Establece un ancho máximo para la imagen */
+  display: block; /* Elimina el espacio extra debajo de la imagen */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
