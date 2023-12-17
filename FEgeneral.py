@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, send_file
 from graph import grafico_frecuencia, grafico_puntaje
 
 def migeneral(matriz_peso):
-    matriz_peso['Ponderación'] = matriz_peso['1']+matriz_peso['2']+matriz_peso['3']+matriz_peso['4']+matriz_peso['5']+matriz_peso['6']+matriz_peso['7']+matriz_peso['8']+matriz_peso['9']+matriz_peso['10']+matriz_peso['11']+matriz_peso['12']+matriz_peso['13']+matriz_peso['14']+matriz_peso['15']+matriz_peso['16']+matriz_peso['17']+matriz_peso['18']
+    matriz_peso['Ponderación'] = matriz_peso[[ '1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18']].apply(pd.to_numeric, errors='coerce').sum(axis=1)
     matriz_peso['Puntaje'] = matriz_peso['Ponderación'] * matriz_peso['Apariciones']
     matriz_peso = matriz_peso.sort_values(by='Puntaje', ascending=False)
 

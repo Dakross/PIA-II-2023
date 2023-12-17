@@ -61,6 +61,9 @@ capital_emocional['Ponderación'] = capital_emocional['1']+capital_emocional['2'
 auto_reconocimiento['Ponderación'] = auto_reconocimiento['1']+auto_reconocimiento['2']+auto_reconocimiento['3']
 auto_regulacion['Ponderación'] = auto_regulacion['4']+auto_regulacion['5']+auto_regulacion['6']+auto_regulacion['7']
 
+# Convierte los valores de la columna '14' a numéricos
+capital_social['14'] = pd.to_numeric(capital_social['14'], errors='coerce')
+
 #Capital social
 capital_social['Ponderación'] = capital_social['8']+capital_social['9']+capital_social['10']+capital_social['11']+capital_social['12']+capital_social['13']+capital_social['14']+capital_social['15']+capital_social['16']+capital_social['17']+capital_social['18']
 reconocimiento['Ponderación'] = reconocimiento['8']+reconocimiento['9']+reconocimiento['10']+reconocimiento['11']
