@@ -1,5 +1,5 @@
 .table-container {
-  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  max-height: 540px; /* Ajusta la altura máxima según tus necesidades */
   overflow-y: auto; /* Agrega desplazamiento vertical si es necesario */
 }
 
